@@ -1,0 +1,30 @@
+{% extends "mainApp/base.html" %}
+
+{% block title %}
+Add Problem
+{% endblock%}
+
+{% block main_content %}
+<form action = "{% url 'addProblem'%}" method = "post">
+{% csrf_token %}
+    <div class="form-group">
+        <label>#</label>
+        <input type="text" name="problem_id" placeholder="#">
+    </div>
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" name="problem_title" placeholder="Problem Title">
+    </div>
+    <div class="form-group">
+        <label>Company Tag</label>
+        <input type="text" name="company_name" placeholder="Company Tag">
+    </div>
+    <div class="form-group">
+        <label>Category Tag</label>
+        <input type="text" name="category_name" placeholder="Category Tag">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}

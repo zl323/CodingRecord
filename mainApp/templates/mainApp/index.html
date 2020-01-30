@@ -1,0 +1,40 @@
+{% extends "mainApp/base.html" %}
+
+{% block title %}
+Coding Exercise
+{% endblock%}
+
+{% block main_content %}
+    <table class="table table-striped">
+        <thread>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">title</th>
+            <th scope="col">category</th>
+            <th scope="col">company</th>
+          </tr>
+        </thread>
+        <tbody>
+            {% if problem_lists %}            
+                {% for problem in problem_lists %}
+                <tr>
+                    <th scope="row">{{problem.num}}</th>
+                    <td>{{problem.title}}</td>
+                    <td>
+                    {% for category in problem.categorytag_set.all%}
+                        <button type="button" class="btn btn-outline-primary btn-sm">{{category.category_text}}</button>
+                    {% endfor %}
+                    </td>
+                    <td>
+                    {% for company in problem.companytag_set.all%}
+                        <button type="button" class="btn btn-outline-primary btn-sm">{{company.company_text}}</button>                    {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}           
+            {% else %}
+                <p>No problems available.</p>
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}
+    
