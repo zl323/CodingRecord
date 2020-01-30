@@ -1,0 +1,2 @@
+# CodingRecord
+Django Application
